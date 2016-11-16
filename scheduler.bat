@@ -1,5 +1,6 @@
 @echo off
 set "script_file_name=\git_redirect.bat"
+rem set "quote_char=""
 
 REM get current path
 set dirVar=%cd%
@@ -9,10 +10,13 @@ set script_path=^"%script_path%^"
 
 echo Enter time at which automatic git commit and push will be done.
 set /p auto_time=Time[HH:MM]: 
+
 rem convert path to 8.3 naming convention
 rem But this was not useful later on .......
 rem cmd /c for /f %%A in (%script_path%) do echo %%~sA
+rem echo %A%
 rem set script_path=%A%
+rem set script_path=%quote_char%%script_path%%quote_char%
 rem echo %script_path%
 rem pause
 

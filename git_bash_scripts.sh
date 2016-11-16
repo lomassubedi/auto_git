@@ -1,4 +1,4 @@
 git status
 git add .
-git commit -m " Alpha Working script"
-git push origin master
+git commit -m "First XML test."
+git push origin xml_tests

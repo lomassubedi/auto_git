@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Task version="1.3">
+  <RegistrationInfo>
+    <URI>http://www.xsd2xml.com</URI>
+    <SecurityDescriptor>str1234</SecurityDescriptor>
+    <Source>str1234</Source>
+    <Date>2012-12-13T12:12:12</Date>
+    <Author>str1234</Author>
+    <Version>str1234</Version>
+    <Description>str1234</Description>
+    <Documentation>str1234</Documentation>
+  </RegistrationInfo>
+  <Triggers />
+  <Settings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <RestartOnFailure>
+      <Interval>P5Y2M10D</Interval>
+      <Count>5</Count>
+    </RestartOnFailure>
+    <MultipleInstancesPolicy>Parallel</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <NetworkProfileName>str1234</NetworkProfileName>
+    <RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable>
+    <WakeToRun>true</WakeToRun>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <DeleteExpiredTaskAfter>P5Y2M10D</DeleteExpiredTaskAfter>
+    <IdleSettings>
+      <Duration>P5Y2M10D</Duration>
+      <WaitTimeout>P5Y2M10D</WaitTimeout>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>true</RestartOnIdle>
+    </IdleSettings>
+    <NetworkSettings>
+      <Name>str1234</Name>
+      <Id>str1234</Id>
+    </NetworkSettings>
+    <ExecutionTimeLimit>P5Y2M10D</ExecutionTimeLimit>
+    <Priority>1</Priority>
+    <RunOnlyIfIdle>true</RunOnlyIfIdle>
+    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>
+    <DisallowStartOnRemoteAppSession>true</DisallowStartOnRemoteAppSession>
+  </Settings>
+  <Data />
+  <Principals>
+    <Principal id="???">
+      <UserId>str1234</UserId>
+      <LogonType>S4U</LogonType>
+      <GroupId>str1234</GroupId>
+      <DisplayName>str1234</DisplayName>
+      <RunLevel>LeastPrivilege</RunLevel>
+      <ProcessTokenSidType>None</ProcessTokenSidType>
+      <RequiredPrivileges>
+        <Privilege>SeCreateTokenPrivilege</Privilege>
+      </RequiredPrivileges>
+    </Principal>
+  </Principals>
+  <Actions Context="???">
+    <Exec id="???">
+      <Command>str1234</Command>
+      <Arguments>str1234</Arguments>
+      <WorkingDirectory>str1234</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>
