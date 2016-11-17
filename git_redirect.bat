@@ -23,10 +23,15 @@ set sh_exe_path=^"%sh_exe_path%^"
 rem echo %sh_exe_path%
 
 
-REM get current path
-set dirVar=%cd%
+REM get the path
+set "repoDir="
+for /f "tokens=3 delims=<>" %%a in (
+    'find /i "<repoDir>" ^< "xmls\info.xml"'
+) do set "repoDir=%%a"
+echo %repoDir%
+
 rem append the file name
-set final_path=%cd%%script_file_name%
+set final_path=%repoDir%%script_file_name%
 
 rem Get drive letter with colon
 set drive=%final_path:~0,2%
@@ -56,7 +61,12 @@ set unix_path=%unix_path: =\ %
 
 echo %unix_path%
 
-%sh_exe_path% --login -i -c %unix_path%
+Write into the repo path to the XML file
+set newValue=%unix_path%
+type "xmls\info.xml"|repl "(<repoDirUnix>).*(</repoDirUnix>)" "$1!newValue!$2" >xmls\info.xml.new
+move /y "xmls\info.xml.new" "xmls\info.xml"
+
+rem %sh_exe_path% --login -i -c %unix_path%
 pause
 
 rem :NOT_FOUND
