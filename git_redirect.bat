@@ -28,14 +28,10 @@ set "repoDir="
 for /f "tokens=3 delims=<>" %%a in (
     'find /i "<repoDir>" ^< "xmls\info.xml"'
 ) do set "repoDir=%%a"
-echo %repoDir%
+rem echo %repoDir%
 
 rem append the file name
 set final_path=%repoDir%%script_file_name%
-
-rem Get drive letter with colon
-set drive=%final_path:~0,2%
-rem echo %drive%
 
 rem Copy path in DOS style 
 set unix_path=%final_path% 
@@ -58,19 +54,16 @@ call :Trim unix_path %unix_path%
 rem discard white space at the end and manage to place "\ " instead of 
 rem solve for white space present directory
 set unix_path=%unix_path: =\ %
+rem echo %unix_path%
 
-echo %unix_path%
+set dirOnly=%unix_path:git_bash_scripts.sh=%
+rem echo %dirOnly%
+echo %dirOnly% >unix_path.dat &rem Write into the repo path to a text file
 
-Write into the repo path to the XML file
-set newValue=%unix_path%
-type "xmls\info.xml"|repl "(<repoDirUnix>).*(</repoDirUnix>)" "$1!newValue!$2" >xmls\info.xml.new
-move /y "xmls\info.xml.new" "xmls\info.xml"
 
-rem %sh_exe_path% --login -i -c %unix_path%
+%sh_exe_path% --login -i -c %unix_path%
 pause
 
-rem :NOT_FOUND
-rem 	echo GIT is probably not installed on your machine !!
 
 :Trim
 	SetLocal EnableDelayedExpansion

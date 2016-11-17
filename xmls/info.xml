@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <task>	
 	<taskName>my_test_task</taskName>
-	<repoDir>C:\Users\ASUS\Dropbox\auto_git</repoDir>
-	<repoDirUnix>ThisIsmyNewValue</repoDirUnix>
+	<repoDir>C:\Users\ASUS\Dropbox\auto git</repoDir>
+	<repoDirUnix>/C/Users/ASUS/Dropbox/auto_git</repoDirUnix>
 </task>
