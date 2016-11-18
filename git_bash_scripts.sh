@@ -14,5 +14,5 @@ cd "$name"
 # ----------------------------------------------
 git status
 git add .
-git commit -m "XML almost ready."
-git push origin xml_revert
+git commit -m "A test."
+git push origin master
