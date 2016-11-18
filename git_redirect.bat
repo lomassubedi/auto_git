@@ -57,7 +57,9 @@ set unix_path=%unix_path: =\ %
 rem echo %unix_path%
 
 set dirOnly=%unix_path:git_bash_scripts.sh=%
+set dirOnly=%unix_path:"=%
 call :Trim dirOnly %dirOnly%
+
 rem echo %dirOnly%
 echo %dirOnly% >unix_path.dat &rem Write into the repo path to a text file
 
