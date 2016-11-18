@@ -11,7 +11,7 @@ var="$name"
 var="${var#"${var%%[![:space:]]*}"}"   # remove leading whitespace characters
 var="${var%"${var##*[![:space:]]}"}"   # remove trailing whitespace characters
 
-# echo "$var"
+echo "$var"
 # cd "$var"
 
 # ----------------------------------------------
