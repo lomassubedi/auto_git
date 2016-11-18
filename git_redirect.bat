@@ -32,6 +32,7 @@ rem echo %repoDir%
 
 rem append the file name
 set final_path=%repoDir%%script_file_name%
+echo %final_path%
 %final_path%
 pause
 
