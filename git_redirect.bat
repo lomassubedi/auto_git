@@ -66,7 +66,7 @@ rem Omit ':'
 set dirOnly=%dirOnly::=%
 
 rem Add '/' in the begining
-set dirOnly=^/%dirOnly%
+set dirOnly=^/%dirOnly%^/
 rem rem Omit the white space present
 rem call :Trim unix_path %unix_path%
 
