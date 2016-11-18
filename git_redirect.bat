@@ -26,7 +26,7 @@ rem echo %sh_exe_path%
 REM get the path
 set "repoDir="
 for /f "tokens=3 delims=<>" %%a in (
-    'find /i "<repoDir>" ^< "xmls\info.xml"'
+    'find /i "<repoDir>" ^< "info.xml"'
 ) do set "repoDir=%%a"
 rem echo %repoDir%
 
