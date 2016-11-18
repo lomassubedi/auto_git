@@ -56,8 +56,9 @@ rem solve for white space present directory
 set unix_path=%unix_path: =\ %
 rem echo %unix_path%
 
-set dirOnly=%unix_path:git_bash_scripts.sh=%
-set dirOnly=%unix_path:"=%
+rem for repo dir
+set dirOnly=%repoDir%
+rem set dirOnly=%unix_path:"=%
 call :Trim dirOnly %dirOnly%
 
 rem echo %dirOnly%
