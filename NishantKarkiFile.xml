@@ -5,12 +5,14 @@
   </RegistrationInfo>
   <Triggers>
     <CalendarTrigger>
-      <StartBoundary>2016-11-18T10:59:49</StartBoundary>
+      <Repetition>
+        <Interval>PT5M</Interval>
+      </Repetition>
+      <StartBoundary>2016-11-18T11:08:00</StartBoundary>
       <Enabled>true</Enabled>
       <ScheduleByWeek>
         <DaysOfWeek>
           <Friday />
-          <Saturday />
         </DaysOfWeek>
         <WeeksInterval>1</WeeksInterval>
       </ScheduleByWeek>
