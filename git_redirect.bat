@@ -76,6 +76,7 @@ call :Trim dirOnly %dirOnly%
 rem echo %dirOnly%
 echo %dirOnly% >unix_path.dat &rem Write into the repo path to a text file
 
+timeout 3
 
 %sh_exe_path% --login -i -c %unix_path%
 pause
