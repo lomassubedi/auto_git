@@ -58,6 +58,16 @@ rem echo %unix_path%
 
 rem for repo dir
 set dirOnly=%repoDir%
+
+rem replace '\' with '/' for unix path conversion
+set dirOnly=%dirOnly:\=/%
+
+rem Omit ':'
+set dirOnly=%dirOnly::=%
+
+rem rem Omit the white space present
+rem call :Trim unix_path %unix_path%
+
 rem set dirOnly=%unix_path:"=%
 call :Trim dirOnly %dirOnly%
 

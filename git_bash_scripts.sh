@@ -20,6 +20,8 @@ cd "$var"
 # Edit commands below as per requirements 
 # ----------------------------------------------
 git status
-git add .
-git commit -m "A test."
-git push origin master
+# git add .
+# git commit -m "A test."
+# git push origin master
+
+read -rsp $'Press any key to continue...\n' -n 1 key
