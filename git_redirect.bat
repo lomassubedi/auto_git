@@ -2,25 +2,25 @@
 setlocal EnableDelayedExpansion
 
 rem Local String variables
-set "sh_exe=bin\sh.exe"
-set "script_file_name=\git_bash_scripts.sh"
+rem set "sh_exe=bin\sh.exe"
+rem set "script_file_name=\git_bash_scripts.sh"
 
-rem Read the Git for Windows installation path from the Registry.
-for %%k in (HKCU HKLM) do (
-    for %%w in (\ \Wow6432Node\) do (
-        for /f "skip=2 delims=: tokens=1*" %%a in ('reg query "%%k\SOFTWARE%%wMicrosoft\Windows\CurrentVersion\Uninstall\Git_is1" /v InstallLocation 2^> nul') do (
-            for /f "tokens=3" %%z in ("%%a") do (
-                set GIT=%%z:%%b
-                rem echo Found Git at "!GIT!".                
-            )
-        )
-    )
-)
+rem rem Read the Git for Windows installation path from the Registry.
+rem for %%k in (HKCU HKLM) do (
+rem     for %%w in (\ \Wow6432Node\) do (
+rem         for /f "skip=2 delims=: tokens=1*" %%a in ('reg query "%%k\SOFTWARE%%wMicrosoft\Windows\CurrentVersion\Uninstall\Git_is1" /v InstallLocation 2^> nul') do (
+rem             for /f "tokens=3" %%z in ("%%a") do (
+rem                 set GIT=%%z:%%b
+rem                 rem echo Found Git at "!GIT!".                
+rem             )
+rem         )
+rem     )
+rem )
 
-set sh_exe_path=%GIT%
-set sh_exe_path=%sh_exe_path%%sh_exe%
-set sh_exe_path=^"%sh_exe_path%^"
-rem echo %sh_exe_path%
+rem set sh_exe_path=%GIT%
+rem set sh_exe_path=%sh_exe_path%%sh_exe%
+rem set sh_exe_path=^"%sh_exe_path%^"
+rem rem echo %sh_exe_path%
 
 
 REM get the path
@@ -28,64 +28,70 @@ set "repoDir="
 for /f "tokens=3 delims=<>" %%a in (
     'find /i "<repoDir>" ^< "info.xml"'
 ) do set "repoDir=%%a"
+
+cd %repoDir% && git status
+cd %repoDir% && git add .
+cd %repoDir% && git commit -m "Changes made."
+cd %repoDir% && git push origin master
+pause
 rem echo %repoDir%
 
 rem append the file name
-set final_path=%repoDir%%script_file_name%
-%final_path%
+rem set final_path=%repoDir%%script_file_name%
+rem %final_path%
 
 
-rem Copy path in DOS style 
-set unix_path=%final_path% 
+rem rem Copy path in DOS style 
+rem set unix_path=%final_path% 
 
-rem replace '\' with '/' for unix path conversion
-set unix_path=%unix_path:\=/%
+rem rem replace '\' with '/' for unix path conversion
+rem set unix_path=%unix_path:\=/%
 
-rem Omit ':'
-set unix_path=%unix_path::=%
+rem rem Omit ':'
+rem set unix_path=%unix_path::=%
 
-rem Omit the white space present
-call :Trim unix_path %unix_path%
-
-rem Add quotation marks at the end
-set unix_path=^"^/%unix_path%^" &rem append '"'
-
-rem Omit the white space present in the ends again
-call :Trim unix_path %unix_path%
-
-rem discard white space at the end and manage to place "\ " instead of 
-rem solve for white space present directory
-set unix_path=%unix_path: =\ %
-rem echo %unix_path%
-
-rem for repo dir
-set dirOnly=%repoDir%
-
-rem replace '\' with '/' for unix path conversion
-set dirOnly=%dirOnly:\=/%
-
-rem Omit ':'
-set dirOnly=%dirOnly::=%
-
-rem Add '/' in the begining
-set dirOnly=^/%dirOnly%^/
 rem rem Omit the white space present
 rem call :Trim unix_path %unix_path%
 
-rem set dirOnly=%unix_path:"=%
-call :Trim dirOnly %dirOnly%
+rem rem Add quotation marks at the end
+rem set unix_path=^"^/%unix_path%^" &rem append '"'
 
-rem echo %dirOnly%
-echo %dirOnly% >unix_path.dat &rem Write into the repo path to a text file
+rem rem Omit the white space present in the ends again
+rem call :Trim unix_path %unix_path%
 
-timeout 3
+rem rem discard white space at the end and manage to place "\ " instead of 
+rem rem solve for white space present directory
+rem set unix_path=%unix_path: =\ %
+rem rem echo %unix_path%
 
-%sh_exe_path% --login -i -c %unix_path%
-pause
+rem rem for repo dir
+rem set dirOnly=%repoDir%
+
+rem rem replace '\' with '/' for unix path conversion
+rem set dirOnly=%dirOnly:\=/%
+
+rem rem Omit ':'
+rem set dirOnly=%dirOnly::=%
+
+rem rem Add '/' in the begining
+rem set dirOnly=^/%dirOnly%^/
+rem rem rem Omit the white space present
+rem rem call :Trim unix_path %unix_path%
+
+rem rem set dirOnly=%unix_path:"=%
+rem call :Trim dirOnly %dirOnly%
+
+rem rem echo %dirOnly%
+rem echo %dirOnly% >unix_path.dat &rem Write into the repo path to a text file
+
+rem timeout 3
+
+rem %sh_exe_path% --login -i -c %unix_path%
+rem pause
 
 
-:Trim
-	SetLocal EnableDelayedExpansion
-	set Params=%*
-	for /f "tokens=1*" %%a in ("!Params!") do EndLocal & set %1=%%b
-	exit /b
+rem :Trim
+rem 	SetLocal EnableDelayedExpansion
+rem 	set Params=%*
+rem 	for /f "tokens=1*" %%a in ("!Params!") do EndLocal & set %1=%%b
+rem 	exit /b
