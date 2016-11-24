@@ -6,13 +6,14 @@
   <Triggers>
     <CalendarTrigger>
       <Repetition>
-        <Interval>PT5M</Interval>
+        <Interval>PT2M</Interval>
       </Repetition>
-      <StartBoundary>2016-11-18T12:55:19</StartBoundary>
+      <StartBoundary>2016-11-20T20:53:00</StartBoundary>
       <Enabled>true</Enabled>
       <ScheduleByWeek>
         <DaysOfWeek>
-          <Friday />
+          <Sunday />
+          <Monday />
         </DaysOfWeek>
         <WeeksInterval>1</WeeksInterval>
       </ScheduleByWeek>
@@ -26,7 +27,7 @@
   </Principals>
   <Settings>
     <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
-    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
     <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
     <AllowHardTerminate>true</AllowHardTerminate>
     <StartWhenAvailable>false</StartWhenAvailable>
@@ -45,8 +46,8 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Users\ASUS\Dropbox\auto_git\git_redirect.bat</Command>
-      <WorkingDirectory>C:\Users\ASUS\Dropbox\auto_git\</WorkingDirectory>
+      <Command>C:\Program Files (x86)\Temco Nepal\GitAutomateTool\git_redirect.bat</Command>
+      <WorkingDirectory>C:\Program Files (x86)\Temco Nepal\GitAutomateTool\</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>

@@ -24,16 +24,20 @@ rem rem echo %sh_exe_path%
 
 
 REM get the path
-set "repoDir="
-for /f "tokens=3 delims=<>" %%a in (
-    'find /i "<repoDir>" ^< "info.xml"'
-) do set "repoDir=%%a"
+rem set "repoDir="
+rem for /f "tokens=3 delims=<>" %%a in (
+rem     'find /i "<repoDir>" ^< "info.xml"'
+rem ) do set "repoDir=%%a"
+
+for /f %%i in ('xmlstarlet\XML.EXE sel -t -v "//repoDir" Info.xml') do (
+	set repoDir=%%i
+	)
 
 cd %repoDir% && git status
 cd %repoDir% && git add .
 cd %repoDir% && git commit -m "Changes made."
 cd %repoDir% && git push origin master
-pause
+
 rem echo %repoDir%
 
 rem append the file name
